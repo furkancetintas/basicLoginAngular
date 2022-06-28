@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { faPlus, faArrowRightFromBracket, faHouse } from "@fortawesome/free-solid-svg-icons";
+import { LoginService } from 'src/app/modules/login/services/login.service';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +9,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  faHouse = faHouse;
+  faPlus = faPlus;
+  faArrowRightFromBracket = faArrowRightFromBracket;
+
+  isOpen: boolean = false;
+
+  constructor(private loginService: LoginService) { }
 
   ngOnInit(): void {
   }
 
+  toggleNavbar() {
+    this.isOpen = !this.isOpen
+  }
+
+  isLoggedIn() {
+    return this.loginService.isLoggedIn();
+  }
+
+  logOut() {
+    this.loginService.logOut();
+  }
 }

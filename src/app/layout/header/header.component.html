@@ -1,7 +1,7 @@
 <header class="site-header sticky-top">
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container d-flex flex-md-row justify-content-between">
-      <a class="navbar-brand" routerLink="/">myFirstProject.</a>
+      <a class="navbar-brand" routerLink="/">basicLogin</a>
       <button
         class="navbar-toggler"
         (click)="toggleNavbar()"
@@ -23,62 +23,41 @@
           <li class="nav-item">
             <a
               class="py-2 nav-link d-md-inline-block"
-              routerLink="/users"
+              routerLink="/"
               [routerLinkActive]="'active-link'"
             >
-              <fa-icon [icon]="faUsers"></fa-icon>
-              Users
+              <fa-icon [icon]="faHouse"></fa-icon>
+              Ana sayfa
             </a>
           </li>
           <li class="nav-item">
             <a
               class="py-2 nav-link d-md-inline-block"
-              routerLink="/todos"
+              routerLink="/product-add"
               [routerLinkActive]="'active-link'"
             >
-              <fa-icon [icon]="faClipboardList"></fa-icon>
-              Todos
+              <fa-icon [icon]="faPlus"></fa-icon>
+              Ürün Ekle
             </a>
           </li>
           <li class="nav-item">
             <a
               class="py-2 nav-link d-md-inline-block"
-              routerLink="/posts"
+              routerLink="/login"
               [routerLinkActive]="'active-link'"
+              *ngIf="isLoggedIn() == false"
             >
-              <fa-icon [icon]="faMailBulk"></fa-icon>
-              Posts
+              <fa-icon [icon]="faArrowRightFromBracket"></fa-icon>
+              Giriş Yap
             </a>
-          </li>
-          <li class="nav-item">
-            <a
+            <button
+              *ngIf="isLoggedIn() == true"
+              (click)="logOut()"
               class="py-2 nav-link d-md-inline-block"
-              routerLink="/photos"
-              [routerLinkActive]="'active-link'"
             >
-              <fa-icon [icon]="faImages"></fa-icon>
-              Photos
-            </a>
-          </li>
-          <li class="nav-item">
-            <a
-              class="py-2 nav-link d-md-inline-block"
-              routerLink="/albums"
-              [routerLinkActive]="'active-link'"
-            >
-              <fa-icon [icon]="faMusic"></fa-icon>
-              Albums
-            </a>
-          </li>
-          <li class="nav-item">
-            <a
-              class="py-2 nav-link d-md-inline-block"
-              routerLink="/comments"
-              [routerLinkActive]="'active-link'"
-            >
-              <fa-icon [icon]="faComments"></fa-icon>
-              Comments
-            </a>
+              <fa-icon [icon]="faArrowRightFromBracket"></fa-icon>
+              Çıkış Yap
+            </button>
           </li>
         </ul>
       </div>

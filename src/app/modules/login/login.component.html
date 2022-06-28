@@ -1,1 +1,42 @@
-<p>login works!</p>
+<main class="form-signin w-100 m-auto">
+  <form #loginForm="ngForm" (click)="login(loginForm)">
+    <h1 class="h3 mb-3 fw-normal text-center">Giriş Yap</h1>
+
+    <div class="form-floating">
+      <input
+        type="text"
+        class="form-control"
+        id="userName"
+        placeholder="Username"
+        #userName="ngModel"
+        [(ngModel)]="model.userName"
+        id="userName"
+        name="userName"
+      />
+      <label for="userName">Kullanıcı Adı</label>
+    </div>
+    <div class="form-floating">
+      <input
+        type="password"
+        class="form-control"
+        id="password"
+        placeholder="Password"
+        #password="ngModel"
+        [(ngModel)]="model.password"
+        id="password"
+        name="password"
+      />
+      <label for="password">Şifre</label>
+    </div>
+
+    <div class="checkbox mb-3">
+      <label>
+        <input type="checkbox" value="remember-me" /> Beni Hatırla
+      </label>
+    </div>
+    <button class="w-100 btn btn-lg btn-primary" type="submit">
+      Giriş Yap
+    </button>
+    <p class="mt-5 mb-3 text-muted text-center">&copy; 2022-??</p>
+  </form>
+</main>
